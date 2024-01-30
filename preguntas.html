@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio para Estudiantes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004080;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicio para Estudiantes</h1>
+
+    <form id="exerciseForm">
+        <label for="question1">1. ¿Cuál es la capital de Francia?</label>
+        <input type="text" id="question1" name="question1" placeholder="Ingresa tu respuesta">
+
+        <label for="question2">2. ¿En qué año se descubrió América?</label>
+        <input type="text" id="question2" name="question2" placeholder="Ingresa tu respuesta">
+
+        <label for="question3">3. ¿Quién escribió 'Cien años de soledad'?</label>
+        <input type="text" id="question3" name="question3" placeholder="Ingresa tu respuesta">
+
+        <button type="button" onclick="checkAnswers()">Verificar Respuestas</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function checkAnswers() {
+            var answers = {
+                question1: document.getElementById('question1').value.toLowerCase(),
+                question2: document.getElementById('question2').value.toLowerCase(),
+                question3: document.getElementById('question3').value.toLowerCase()
+            };
+
+            var correctAnswers = {
+                question1: 'parís',
+                question2: '1492',
+                question3: 'gabriel garcía márquez'
+            };
+
+            var correctCount = 0;
+
+            for (var question in answers) {
+                if (answers[question] === correctAnswers[question]) {
+                    correctCount++;
+                }
+            }
+
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Respuestas correctas: ' + correctCount + ' de 3';
+        }
+    </script>
+
+</body>
+</html>
